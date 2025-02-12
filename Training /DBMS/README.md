@@ -4,7 +4,15 @@
  In Introduction I studied about database , type of databases and  the SQl and the difference between SQL and NoSql.
 
  # Relational Database Fundamentals
- In this i studied about database design concept 
+ In this i studied about database design concept , about the Entity-Relational(ER),about 
+ the keys and types of keys available and how to 
+ remove redundancy in database with the help of Normalization.
+
+ #  Basic SQL Commands and Advanced SQL Queries
+ In this i learned basic Commands of sql Data Definition Language (DDL): CREATE, ALTER, DROP,Data Manipulation Language (DML): SELECT, INSERT, UPDATE, DELETE,Data Control Language (DCL): GRANT, REVOKE,Transaction Control Language (TCL): BEGIN, COMMIT, ROLLBACK
+ and about the Joins to retrive data from the tables and types of joins, and about the subqueries and coorelated subqueries
+ and about the Window functions like row_number(), Rank() etc.
+
 
 # Question given in the Task
 Write a SQL query that performs this sampling and creates the expected output ordered by image_id with integer columns image_id, weak_label
