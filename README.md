@@ -8,7 +8,7 @@ Write a SQL query that performs this sampling and creates the expected output or
 
 
 
-# Steps Taken Solve The Task
+# Steps Taken To Solve The Task
 
 
 1) Created Task Database 
