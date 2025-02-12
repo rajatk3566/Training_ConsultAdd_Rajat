@@ -1,6 +1,10 @@
 # Learning
-we learned about the basic concept of SQl and learned how to write basic to advance queries.
+ 
+ # Introduction 
+ In Introduction I studied about database , type of databases and  the SQl and the difference between SQL and NoSql.
 
+ # Relational Database Fundamentals
+ In this i studied about database design concept 
 
 # Question given in the Task
 Write a SQL query that performs this sampling and creates the expected output ordered by image_id with integer columns image_id, weak_label
