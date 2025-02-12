@@ -1,6 +1,8 @@
+-- Creating Database
 CREATE DATABASE Task;
 USE TASK;
 
+-- Creating table and inserting the values into it 
 CREATE TABLE IF NOT EXISTS unlabeled_image_predictions (
 image_id int, score float );
 INSERT INTO unlabeled_image_predictions (image_id, score) VALUES
@@ -8,6 +10,7 @@ INSERT INTO unlabeled_image_predictions (image_id, score) VALUES
 
 SHOW DATABASES;
 
+-- odering in descending order based on score
 SELECT image_id,score
 FROM unlabeled_image_predictions
 ORDER BY score DESC;
@@ -15,15 +18,19 @@ ORDER BY score DESC;
 SELECT *
 FROM unlabeled_image_predictions;
 
+
+-- Used Window Function (row_number()) to give unique identifier for entire window.
 SELECT image_id,score,
 row_number() OVER(ORDER BY score DESC)AS positive_rank
 FROM unlabeled_image_predictions;
 
+ -- Used Window Function (row_number()) to give unique identifier for entire window 
 SELECT image_id, score,
 row_number() OVER(ORDER BY SCORE ASC)AS negative_rank
 FROM unlabeled_image_predictions;
 
 
+-- fetching every third image until we get 10000 images for the positive 
 SELECT image_id
 FROM (
 SELECT image_id,score,
@@ -34,7 +41,7 @@ WHERE positive_rank % 3 = 1
 ORDER BY image_id
 LIMIT 10000;
 
-
+-- fetching every third image until we get 10000 images for the Negative
 SELECT image_id
 FROM (
 SELECT image_id, score,
@@ -46,6 +53,8 @@ ORDER BY image_id
 LIMIT 10000;
 
 
+
+-- Created a View for the positve images 
 CREATE VIEW answer1_view AS
 SELECT image_id, 1 AS weak_label
 FROM (
@@ -57,6 +66,8 @@ WHERE positive_rank % 3 = 1
 ORDER BY image_id
 LIMIT 10000;
 
+
+-- created the View for negative images 
 CREATE VIEW answer2_view AS
 SELECT image_id, 0 AS weak_label
 FROM (
@@ -68,7 +79,7 @@ WHERE negative_rank % 3 = 1
 ORDER BY image_id
 LIMIT 10000;
 
-
+-- Combined at the end with help of union to get the result for both positive and negative.
 SELECT * 
 FROM (
     SELECT * FROM answer1_view
