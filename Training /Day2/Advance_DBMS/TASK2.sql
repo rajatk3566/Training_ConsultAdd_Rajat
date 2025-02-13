@@ -92,7 +92,6 @@ INSERT INTO Injury (injuryID, memberID, trainerID, injuryName, injuryDate) VALUE
 SELECT * FROM Injury;
 
 
-
 -- Example for checking the details.
 -- lets get the details of member and their assigned Trainer 
 SELECT 
@@ -115,17 +114,6 @@ JOIN Member m ON i.memberID = m.memberID
 JOIN Trainer t ON i.trainerID = t.trainerID
 WHERE m.memberID = 2
 ORDER BY i.injuryDate DESC;
-
-
-
-
-
-
-
-
-
-
-
 
 
 
